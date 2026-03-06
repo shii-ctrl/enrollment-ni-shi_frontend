@@ -8,39 +8,41 @@
   </head>
   <body>
     <header>
-      <h1>Information</h1>
+      <h1>Student Enrollment System</h1>
+      <p>Manage and view student enrollment information</p>
     </header>
 
     <main id="container">
       <section id="form-wrapper">
+        <h2>Add New Student</h2>
         <form id="product-form">
           <div class="field">
             <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" required />
+            <input type="text" id="fullName" name="fullName" placeholder="Enter full name" required />
           </div>
           <div class="field">
             <label for="course">Course</label>
-            <input type="text" id="course" name="course" required />
+            <input type="text" id="course" name="course" placeholder="Enter course name" required />
           </div>
           <div class="field">
             <label for="yearLevel">Year Level</label>
-            <input type="text" id="yearLevel" name="yearLevel" required />
+            <input type="text" id="yearLevel" name="yearLevel" placeholder="E.g., 1st Year, 2nd Year" required />
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" placeholder="Enter email address" required />
           </div>
            <div class="field">
             <label for="dateEnrolled">Date Enrolled</label>
             <input type="date" id="dateEnrolled" name="dateEnrolled" required />
           </div>
-          <button type="submit" id="add">Add User</button>
+          <button type="submit" id="add">Add Student</button>
         </form>
       </section>
 
       <section id="list-wrapper">
         <h2>Enrolled Students</h2>
-        <ul id="content"></ul>
+        <div id="content" class="students-grid"></div>
       </section>
     </main>
 
