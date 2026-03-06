@@ -4,6 +4,15 @@ window.addEventListener("load", () => {
   getUsers();
 });
 
+// Format date to MM/DD/YYYY format
+function formatDate(dateString) {
+  const date = new Date(dateString + 'T00:00:00');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${month}/${day}/${year}`;
+}
+
 function getUsers() {
   let html = "";
   //FETCH API
@@ -14,13 +23,46 @@ function getUsers() {
     })
     .then((data) => {
       console.log(data);
-      data.forEach((element) => {
-        html += `<li>${element.id}. ${element.fullName} - ${element.course} - ${element.yearLevel} - ${element.email} - ${element.dateEnrolled}</li>`;
-      });
+      if (data.length === 0) {
+        html = '<p class="no-students">No students enrolled yet.</p>';
+      } else {
+        data.forEach((element) => {
+          html += `
+            <div class="student-card">
+              <div class="card-header">
+                <span class="student-id">#${element.id}</span>
+              </div>
+              <div class="card-content">
+                <div class="field-item">
+                  <span class="field-label">Name</span>
+                  <span class="field-value">${element.fullName}</span>
+                </div>
+                <div class="field-item">
+                  <span class="field-label">Course</span>
+                  <span class="field-value">${element.course}</span>
+                </div>
+                <div class="field-item">
+                  <span class="field-label">Year Level</span>
+                  <span class="field-value">${element.yearLevel}</span>
+                </div>
+                <div class="field-item">formatDate(element.dateEnrolled)
+                  <span class="field-label">Email</span>
+                  <span class="field-value email">${element.email}</span>
+                </div>
+                <div class="field-item">
+                  <span class="field-label">Date Enrolled</span>
+                  <span class="field-value">${element.dateEnrolled}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
       content.innerHTML = html;
     })
     .catch((error) => {
       console.log(error);
+      content.innerHTML = '<p class="error">Failed to load students. Please try again.</p>';
     });
 }
 
