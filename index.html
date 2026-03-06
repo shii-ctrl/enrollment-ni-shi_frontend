@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a Product</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Information</h1>
+    </header>
+
+    <main id="container">
+      <section id="form-wrapper">
+        <form id="product-form">
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+          <div class="field">
+            <label for="course">Course</label>
+            <input type="text" id="course" name="course" required />
+          </div>
+          <div class="field">
+            <label for="yearLevel">Year Level</label>
+            <input type="text" id="yearLevel" name="yearLevel" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required />
+          </div>
+           <div class="field">
+            <label for="dateEnrolled">Date Enrolled</label>
+            <input type="text" id="dateEnrolled" name="dateEnrolled" required />
+          </div>
+          <button type="submit" id="add">Add User</button>
+        </form>
+      </section>
+
+      <section id="list-wrapper">
+        <ul id="content"></ul>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
