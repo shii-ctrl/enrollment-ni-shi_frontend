@@ -6,7 +6,8 @@ window.addEventListener("load", () => {
 
 // Format date to MM/DD/YYYY format
 function formatDate(dateString) {
-  const date = new Date(dateString + 'T00:00:00');
+  if (!dateString) return 'N/A';
+  const date = new Date(dateString);
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   const year = date.getFullYear();
@@ -45,13 +46,13 @@ function getUsers() {
                   <span class="field-label">Year Level</span>
                   <span class="field-value">${element.yearLevel}</span>
                 </div>
-                <div class="field-item">formatDate(element.dateEnrolled)
+                <div class="field-item">
                   <span class="field-label">Email</span>
                   <span class="field-value email">${element.email}</span>
                 </div>
                 <div class="field-item">
                   <span class="field-label">Date Enrolled</span>
-                  <span class="field-value">${element.dateEnrolled}</span>
+                  <span class="field-value">${formatDate(element.dateEnrolled)}</span>
                 </div>
               </div>
             </div>
