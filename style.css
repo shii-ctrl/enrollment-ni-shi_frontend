@@ -8,20 +8,28 @@
 html, body {
   height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f9f9f9 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #333;
+  line-height: 1.6;
 }
 
 header {
-  background: linear-gradient(90deg, #007acc 0%, #00b4f5 100%);
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
-  padding: 1rem 0;
+  padding: 2rem 0;
   text-align: center;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 #container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -31,80 +39,164 @@ header {
 
 /* Form styling */
 #form-wrapper {
-  flex: 1 1 300px;
-  background: linear-gradient(135deg, #ffffff 0%, #e6f0ff 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex: 1 1 400px;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+#product-form {
+  display: flex;
+  flex-direction: column;
 }
 
 #product-form .field {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 #product-form label {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
+  color: #374151;
+  font-size: 0.95rem;
 }
 
-#product-form input[type="text"] {
+#product-form input[type="text"],
+#product-form input[type="email"],
+#product-form input[type="date"] {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+#product-form input[type="text"]:focus,
+#product-form input[type="email"]:focus,
+#product-form input[type="date"]:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 #product-form button {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background: linear-gradient(45deg, #007acc, #00b4f5);
+  padding: 0.875rem 2rem;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
 }
 
 #product-form button:hover {
-  background: linear-gradient(45deg, #005fa3, #0088cc);
+  background: linear-gradient(45deg, #4338ca, #6d28d9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+#product-form button:active {
+  transform: translateY(0);
 }
 
 /* List styling */
 #list-wrapper {
-  flex: 2 1 400px;
-  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  max-height: 400px;
-  overflow-y: auto;
+  flex: 2 1 500px;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+#list-wrapper h2 {
+  margin-bottom: 1.5rem;
+  color: #374151;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 #content {
   list-style: none;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 #content li {
-  background: linear-gradient(90deg, #ffffff 0%, #e8f0ff 100%);
-  margin-bottom: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(90deg, #f8fafc 0%, #e2e8f0 100%);
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid #4f46e5;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 0.95rem;
 }
 
 #content li:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  background: linear-gradient(90deg, #ffffff 0%, #f1f5f9 100%);
 }
 
-@media (max-width: 600px) {
+#content li:nth-child(even) {
+  background: linear-gradient(90deg, #ffffff 0%, #f8fafc 100%);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   #container {
     flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  #form-wrapper,
+  #list-wrapper {
+    padding: 1.5rem;
+  }
+
+  #content li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.5rem 0;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  #product-form input[type="text"],
+  #product-form input[type="email"],
+  #product-form input[type="date"] {
+    padding: 0.625rem 0.875rem;
+  }
+
+  #product-form button {
+    width: 100%;
+    align-self: stretch;
   }
 }
